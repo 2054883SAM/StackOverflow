@@ -1,0 +1,16 @@
+                                                        Étape de création du projet:
+1. Il faut crée deux folders. (Client et serveur)
+2. Ensuite on ce dirige dans le backend et on fait l'installation:
+        1. npm init
+        2. npm install express
+        3. npm install cors
+        4. npm install mysql2
+        5. npm install nodemon. Dans le script ( "start":"nodemon index.js")  
+        6. npm install sequelize sequelize-cli 
+        7. npm install npm install -g sequelize sequelize-cli
+        8. sequelize init (Delete migration et seeders (inutile))
+3. Pour generer une table dans mysql2
+        1.création de la table dans server/models/"Nom de la table" (Regarder le fichier "Questions.js")
+        2. Lors que la création été fait, il faut importer le fichier "models". Ça vas vérifier si les tables son deja ajouter dans la base de donné.
+        Si non, elle ce font ajouter a la base de donné qui a été entré dans le fichier config/config.json
+

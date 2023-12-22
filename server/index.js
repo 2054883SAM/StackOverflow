@@ -2,11 +2,16 @@
 const express = require("express");
 const app = express();
 
+app.use(express.json());
+
 const db = require("./models");
+
+//Routes
+const routeQuestion = require("./routes/Questions");
+app.use("/questions", routeQuestion);
+
 db.sequelize.sync().then(() => {
   app.listen(3001, () => {
     console.log("Serveur fonctionnel sur le serveur 3001");
   });
 });
-
-//création des table dans la base de donné

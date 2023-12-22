@@ -1,3 +1,4 @@
+//création des table dans la base de donné
 module.exports = (sequelize, DataTypes) => {
   const Questions = sequelize.define("Questions", {
     title: {
@@ -14,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       questionText: {
         //La question est de type String
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         //Ne peut pas etre null
         allowNull: false,
       },

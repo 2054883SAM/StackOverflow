@@ -9,8 +9,25 @@
         6. npm install sequelize sequelize-cli 
         7. npm install npm install -g sequelize sequelize-cli
         8. sequelize init (Delete migration et seeders (inutile))
+        9. npm install cors (./server/index.js: ligne 4 et ligne 7)
 3. Pour generer une table dans mysql2
         1.création de la table dans server/models/"Nom de la table" (Regarder le fichier "Questions.js")
         2. Lors que la création été fait, il faut importer le fichier "models". Ça vas vérifier si les tables son deja ajouter dans la base de donné.
         Si non, elle ce font ajouter a la base de donné qui a été entré dans le fichier config/config.json
 
+4. Ensuite la création des deux méthodes POST et GET dans le fichier ./routes/Questions.js
+5. Ensuite dans le Frontend pour afficher les questions qui ce trouve dans la base de donné
+        1. npx create-react-app .
+        2. npm install axios
+
+6. Pour commencer a utiliser plusieur route pour notre application (toujours dans le folder client)
+        1. npm install react-router-dom
+        2. Dans src, crée un folder qui ce nomme: pages (folder qui vascontenir toute les routes de l'application)
+        Information trouver sur internet: Few updates; 'Switch' is now 'Routes' in v6. ,
+        also no longer require 'exact' , and component in Route is now 'element={<Home/>}' for example
+
+7. Pour la page création d'une question
+        1. npm install formik (client)
+        (Formik est une bibliothèque React simplifiant la gestion des formulaires en facilitant la gestion de l'état,
+        de la validation et de la soumission des données.)
+        2. npm install yup (pour la validation des inputs)

@@ -1,9 +1,10 @@
 //utilisation du framework Express pour créer un serveur, écouter les requêtes entrantes sur le port 3001
 const express = require("express");
 const app = express();
+const cors = require("cors");
 
 app.use(express.json());
-
+app.use(cors());
 const db = require("./models");
 
 //Routes

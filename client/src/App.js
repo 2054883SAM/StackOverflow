@@ -1,31 +1,25 @@
 import "./App.css";
-import axios from "axios";
-//On veux que les requetes fonctionne des quon n'ouvre le site ou la page
-import { useEffect, useState } from "react";
+//Few updates; 'Switch' is now 'Routes' in v6. , also no longer require 'exact' ,
+//and component in Route is now 'element={<Home/>}' for example
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import Accueil from "./pages/Accueil";
+import CreationQuestion from "./pages/CreationQuestion";
 
 function App() {
-  const [listeQuestions, setListeQuestions] = useState([]);
-
-  useEffect(() => {
-    axios.get("http://localhost:3001/questions").then((response) => {
-      setListeQuestions(response.data);
-    });
-  }, []);
-
   return (
     <div className="App">
-      {listeQuestions.map((valeur, key) => {
-        return (
-         <div className="container"> 
-          <div className="question">
-            <div className="title">{valeur.title}</div>
-            <div className="header">{valeur.language}</div>
-            <div className="questionText">{valeur.questionText}</div>
-            <div className="footer">@{valeur.username}</div>
-          </div>
-          </div>
-        );
-      })}
+      <Router>
+        <header>
+      <nav className="navbar">
+      <Link to="/">Questions</Link>
+      <Link to="creeQuestion">Poser votre question</Link>
+      </nav>
+      </header>
+        <Routes>
+          <Route path="/" element={<Accueil />}></Route>
+          <Route path="/creeQuestion" element={<CreationQuestion />}></Route>
+        </Routes>
+        </Router>
     </div>
   );
 }

@@ -66,13 +66,13 @@ function CreationQuestion() {
             name="questionText"
             placeholder="(Entrer votre question)"
           ></Field>
-          <label>Langage</label>
+          <label>Technologie</label>
           <ErrorMessage name="language" component="span" />
           <Field
             as="select" // Utilisation d'une balise select pour la liste déroulante
             id="inputCreeQuestion"
             name="language"
-            placeholder="(Sélectionner le langage)"
+            placeholder="(Sélectionner la technologie)"
           >
             {languages.map((lang) => (
               <option key={lang} value={lang}>

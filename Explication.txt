@@ -31,3 +31,12 @@
         (Formik est une bibliothèque React simplifiant la gestion des formulaires en facilitant la gestion de l'état,
         de la validation et de la soumission des données.)
         2. npm install yup (pour la validation des inputs)
+
+8. Lorsqu'un utilisateur click sur une question
+        1. Crée une nouvelle page qui vas ce nommer question
+        2. Fair un import de useParams
+        3. Il faut faire l'utilisation de {useNavigate} et cree une varaible navigate voir la ligne 11 de la page Accueil.js
+        4. Ensuite l'utiliser dans le onClick en utilisant le id. Voir ligne 25 de Accueil.js
+        5. Ensuite dans la page question il faut utiliser {useEffect} pour pouvoir afficher les information derictement lorsque l'app roule
+        6. Et il faut utiliser axios pour pouvoir prendre les information d'une seul question
+        7. Il y a un changement a faire dans la base de donné

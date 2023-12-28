@@ -4,7 +4,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Accueil from "./pages/Accueil";
 import CreationQuestion from "./pages/CreationQuestion";
-
+import Question from "./pages/Question";
 function App() {
   return (
     <div className="App">
@@ -18,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Accueil />}></Route>
           <Route path="/creeQuestion" element={<CreationQuestion />}></Route>
+          <Route path="/question/:id" element={<Question />}></Route>
         </Routes>
         </Router>
     </div>

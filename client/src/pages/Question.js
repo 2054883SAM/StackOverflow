@@ -25,7 +25,7 @@ function Question() {
           <div className="footer">@{questionSelectionner.username}</div>
         </div>
       </div>
-      <div className="Reponse">a</div>
+      <div className="Reponse">Reponse au question</div>
     </div>
   );
 }

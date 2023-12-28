@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import "./CreationQuestion.css";
 import * as Yup from "yup";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import {useNavigate} from "react-router-dom"
 
 function CreationQuestion() {
   const initialValues = {
@@ -12,8 +12,7 @@ function CreationQuestion() {
     language: "",
     username: "",
   };
-
-  
+  let navigate = useNavigate();
   
 
   const validationSchema = Yup.object().shape({
@@ -28,6 +27,8 @@ function CreationQuestion() {
   const onSubmit = (data) => {
     axios.post("http://localhost:3001/questions", data).then((response) => {
         console.log("Ca fonctionne");
+           
+           navigate("/")
       });
   };
   const languages = [
@@ -41,6 +42,8 @@ function CreationQuestion() {
     "Css",
     "JavaScript",
   ];
+
+  
 
   return (
     <div className="creationQuestion">

@@ -40,3 +40,10 @@
         5. Ensuite dans la page question il faut utiliser {useEffect} pour pouvoir afficher les information derictement lorsque l'app roule
         6. Et il faut utiliser axios pour pouvoir prendre les information d'une seul question
         7. Il y a un changement a faire dans la base de donné
+
+9. Création de la base de donné pour les reponse au question
+        1. Il faut crée un nouveau modele dans la base de donné (Reponse)
+        2.Ensuite cette table vas ce crée dans la base de donné mysql
+        PS: Il faut comprendre qu'il peut avoir plusieur reponse a une question. 
+        3. Dans le models "Questions" il faut cree une fonction qui vas dire que notre question a plusieur reponse. Voir ligne 31
+        4. Ensuite une nouvelle table va etre crée dans la base de donnée

@@ -1,26 +1,27 @@
-import "./App.css";
-//Few updates; 'Switch' is now 'Routes' in v6. , also no longer require 'exact' ,
-//and component in Route is now 'element={<Home/>}' for example
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import "./App.css"; // Assurez-vous que les styles CSS sont bien importés
 import Accueil from "./pages/Accueil";
 import CreationQuestion from "./pages/CreationQuestion";
 import Question from "./pages/Question";
+
 function App() {
   return (
     <div className="App">
       <Router>
         <header>
-      <nav className="navbar">
-      <Link to="/">Questions</Link>
-      <Link to="creeQuestion">Poser votre question</Link>
-      </nav>
-      </header>
+          <nav className="navbar">
+            <Link to="/">Questions</Link>
+            /
+            <Link to="/creeQuestion">Poser votre question</Link>
+          </nav>
+        </header>
         <Routes>
-          <Route path="/" element={<Accueil />}></Route>
-          <Route path="/creeQuestion" element={<CreationQuestion />}></Route>
-          <Route path="/question/:id" element={<Question />}></Route>
+          <Route path="/" element={<Accueil />} />
+          <Route path="/creeQuestion" element={<CreationQuestion />} />
+          <Route path="/question/:id" element={<Question />} />
         </Routes>
-        </Router>
+      </Router>
     </div>
   );
 }

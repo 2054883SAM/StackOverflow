@@ -1,39 +1,50 @@
-.App {
-  width: 100vw;
-  height: auto;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+/* Style de base pour le corps de la page */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #00000054;
 }
 
+/* Style général de l'application */
+.App {
+  text-align: center;
+}
+
+/* Style de la barre de navigation */
 .navbar {
   width: 100%;
   height: 70px;
-  background-color: dodgerblue;
+  background-color: #333;
   display: flex;
   align-items: center;
-  font-family: Arial, Helvetica, sans-serif;
-  position: fixed; /* Ajout de la propriété pour fixer la barre de navigation */
-  top: 0; /* Positionner la barre de navigation en haut de la page */
-  left: 0; /* Positionner la barre de navigation à gauche de la page */
+  justify-content: center; /* Aligner les éléments au centre */
+  padding: 0 20px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
   z-index: 1000;
   
 }
 
+/* Style des liens de la barre de navigation */
 .navbar a {
-  margin-left: 20px;
+  color: white;
   text-decoration: none;
-  color: rgb(255, 255, 255);
+  font-size: 18px;
+  margin: 0 10px;
+  padding: 10px;
+  border-radius: 5px; /* Ajout d'un rayon de bordure pour l'effet de fond */
+  transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
 }
+
+/* Style des liens au survol */
 .navbar a:hover {
-  margin-left: 20px;
-  text-decoration: none;
-  color: rgb(255, 255, 255);
+  color: #4CAF50;
+  background-color: rgba(255, 255, 255, 0.1); /* Changement subtil de fond */
+  transform: translateY(-2px) scale(1.05); /* Légère élévation et agrandissement */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre pour un effet de profondeur */
 }
-
-body {
-  margin: 0;
-  padding: 0;
+/* Ajout d'un espace en haut du contenu principal pour ne pas être caché par la navbar */
+.main-content {
+  padding-top: 80px; /* Hauteur de la navbar + un peu d'espace */
 }
-
-

@@ -47,3 +47,16 @@
         PS: Il faut comprendre qu'il peut avoir plusieur reponse a une question. 
         3. Dans le models "Questions" il faut cree une fonction qui vas dire que notre question a plusieur reponse. Voir ligne 31
         4. Ensuite une nouvelle table va etre crée dans la base de donnée
+        5. Dans index il faut crée la routes reponses. Voir lingne 14 dans index
+        6. Ensuite on vas cree les routes les reponses
+
+10. Création de l'interface pour l'ajout des reponses à une question
+        1. Creation de l'input pour ecrire la reponse et creation du boutton
+        2. Ensuite on utilise axios pour get tout les reponses repondu grace au id
+        3. "L'ajout de id dans le tableau de dépendances de useEffect garantit que les requêtes Axios sont relancées 
+        chaque fois que l'identifiant change. Cela est crucial dans les applications à page unique (SPA) où les composants sont réutilisés." Voir ligne 19 "Question.js"
+        4. Cree un nouveau useState "reponseQuestion" qui vas permettre de mettre tout les reponses au question dans le tableau. Ensuite on affiche avec un boucle (map)
+        5. Ensuite pour ajouter une reponse, on crée une methode on click qui vas envoyer la reponse dans la base de donné avec le id de la question
+        
+        
+

@@ -1,52 +1,64 @@
-.createPostPage {
-    font-family: Arial, Helvetica, sans-serif;
-    width: 100vw;
-    height: 70vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
-  }
-  .formContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 500px;
-    height: auto;
-    padding: 20px;
-    border: 5px solid dodgerblue;
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0px 20px 50px dodgerblue;
-    margin-top: 90px;
-    
-  }
-  
-  .formContainer #inputCreeQuestion {
-    height: 40px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: 2px solid grey;
-    border-radius: 15px;
-    padding-left: 10px;
-    font-size: 20px;
-  }
-  
-  .formContainer button {
-    margin-top: 15px;
-    height: 40px;
-    border: none;
-    background-color: dodgerblue;
-    border-radius: 15px;
-    color: white;
-  }
-  
-  .formContainer button:hover {
-    cursor: pointer;
-   
-    background-color: lightskyblue;
-  }
-  
-  span {
-    color: red;
-  }
+.creationQuestion {
+  font-family: 'Arial', sans-serif;
+  width: 100vw; /* Largeur totale de la vue */
+  height: 100vh; /* Hauteur totale de la vue */
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+ 
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  padding: 30px;
+  border: 3px solid #4CAF50;; /* Bordure plus fine pour un look plus élégant */
+  background-color: white;
+  border-radius: 10px; /* Rayon de bordure légèrement réduit */
+  box-shadow: 0 10px 25px rgb(255, 255, 255); /* Ombre plus subtile */
+  margin-top: 90px;
+  transition: all 0.3s ease; /* Transition douce pour les interactions */
+}
+
+.formContainer #inputCreeQuestion {
+  height: 45px;
+  margin: 10px 0; /* Uniformiser les marges */
+  border: 2px solid #cccccc; /* Couleur de bordure plus douce */
+  border-radius: 10px;
+  padding: 0 15px;
+  font-size: 18px; /* Taille de police ajustée */
+  transition: border-color 0.3s ease; /* Transition sur la bordure */
+}
+
+.formContainer #inputCreeQuestion:focus {
+  border-color: #4CAF50; /* Changement de couleur lors de la mise au point */
+  outline: none; /* Supprimer l'outline par défaut */
+}
+
+.formContainer button {
+  margin-top: 20px;
+  height: 45px;
+  border: none;
+  background-color: #4CAF50;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px; /* Taille de police pour le texte du bouton */
+  transition: background-color 0.3s ease;
+}
+
+.formContainer button:hover {
+  cursor: pointer;
+  background-color: #00bfff; /* Couleur légèrement plus claire au survol */
+}
+
+span {
+  color: red;
+  font-size: 14px; /* Taille de police pour les messages d'erreur */
+}
+
+.formContainer label {
+  color: #4CAF50; /* Couleur bleue pour les labels */
+  font-size: 16px; /* Taille de police ajustée pour les labels */
+  margin-bottom: 5px; /* Ajout d'une petite marge en dessous des labels */
+}

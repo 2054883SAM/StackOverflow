@@ -16,23 +16,20 @@ function Accueil() {
       });
     }, []);
 
-  return (
-    <div >
-    {listeQuestions.map((valeur, key) => {
-      return (
-       <div className="container"> 
-          {/* Le onClick permet d'aller dans la page de la question selectionner */}
-        <div className="question" onClick={() => navigate(`/question/${valeur.id}`)}>
-          <div className="title">{valeur.title}</div>
-          <div className="header">Technolgie: {valeur.language}</div>
-          <div className="questionText">{valeur.questionText}</div>
-          <div className="footer">@{valeur.username}</div>
-        </div>
-        </div>
-      );
-    })}
-  </div>
-  )
+    return (
+      <div>
+        {listeQuestions.map((valeur, key) => (
+          <div className="container" key={key}> 
+            <div className="question" onClick={() => navigate(`/question/${valeur.id}`)}>
+              <div className="title">{valeur.title}</div>
+              <div className="header">Technologie: {valeur.language.toUpperCase()}</div>
+              <div className="questionText">{valeur.questionText}</div>
+              <div className="footer">@{valeur.username}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+  );
 }
 
-export default Accueil
+export default Accueil;

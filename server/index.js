@@ -14,6 +14,9 @@ app.use("/questions", routeQuestion);
 const routeReponse = require("./routes/Reponses");
 app.use("/reponses", routeReponse);
 
+const routeUser = require("./routes/Users");
+app.use("/auth", routeUser);
+
 db.sequelize.sync().then(() => {
   app.listen(3001, () => {
     console.log("Serveur fonctionnel sur le serveur 3001");

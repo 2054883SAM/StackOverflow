@@ -57,6 +57,14 @@
         chaque fois que l'identifiant change. Cela est crucial dans les applications à page unique (SPA) où les composants sont réutilisés." Voir ligne 19 "Question.js"
         4. Cree un nouveau useState "reponseQuestion" qui vas permettre de mettre tout les reponses au question dans le tableau. Ensuite on affiche avec un boucle (map)
         5. Ensuite pour ajouter une reponse, on crée une methode on click qui vas envoyer la reponse dans la base de donné avec le id de la question
-        
+
+11. Création d'un systeme login et register
+        1. Création d'un models Users,
+        2. Création de la colonnes username et password dans le fichier "models/Users.js"
+        3. Création de la route post pour le user
+        4. Fair l'installation de la librairie "Bcrypt". Ce qui vas permettre de crypter les MDP
+        4. Creation des route post
+        5. Creation de la page inscription en utilisant Formik pour verifier la les donné qui vont etre enregistrer
+        7. Creation de la page connexion
         
 

@@ -4,6 +4,8 @@ import "./App.css"; // Assurez-vous que les styles CSS sont bien importés
 import Accueil from "./pages/Accueil";
 import CreationQuestion from "./pages/CreationQuestion";
 import Question from "./pages/Question";
+import Connecter from './pages/Connecter';
+import Inscrire from './pages/Inscrire';
 
 function App() {
   return (
@@ -14,12 +16,19 @@ function App() {
             <Link to="/">Questions</Link>
             /
             <Link to="/creeQuestion">Poser votre question</Link>
+            /
+            <Link to="/connexion">Se connecter</Link>
+            /
+            <Link to="/inscrire">S'incrire</Link>
+
           </nav>
         </header>
         <Routes>
           <Route path="/" element={<Accueil />} />
           <Route path="/creeQuestion" element={<CreationQuestion />} />
           <Route path="/question/:id" element={<Question />} />
+          <Route path="/connexion" element={<Connecter />} />
+          <Route path="/inscrire" element={<Inscrire />} />
         </Routes>
       </Router>
     </div>

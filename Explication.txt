@@ -66,5 +66,41 @@
         4. Creation des route post
         5. Creation de la page inscription en utilisant Formik pour verifier la les donné qui vont etre enregistrer
         7. Creation de la page connexion
+
+12. Systeme d'authentification
+        1. À chaque fois qu'un utilisateur vas essayer de se connecter, on vas utiliser un tocken
+        2. On fait l'installtion de : npm install jsonwebtoken. Ce qui va nous permettre de faire la genration du token lors de la connexion d'utilisateur
+        3. Pour la generation du token, voir ligne 8 et 35 de: ./routes/Users.js
+        4. on vas crée un token qui vas contenir comme données le nom d'utilisateur et le id
+        5. Ensuite, il faut aller dans la page (./pages/Connecter.js), et dans la function de axios, on verifie si c'est pas une erreur,
+        qui à été recus depuis le backend.
+        6. Si c'est une erreur, on affiche celle-ci dans le frontend sinon un acces token vas etre crée.
+        Pour le voir: click droit-> inspecter-> application-> storage-> sessionStorage-> http://localhost:3000
+        7. La raison pour laquel nous avons besoin, c'est pour que seul les personnes qui sont connecter peuvent ecrire une reponse ou cree une question.
+        8. Grace a la variable du acces token, qui sont le username et le id de la personne connecter, il vas etre possible pour nous de prendre le id lorsque
+        l'utilisateur connecter lorsqu'il cree une question et sont username lorsqu'il donne un reponse.
+        9. On vas crée un nouveau dossier (middlewares) dans server, pour ensuite crée un fichier un fichier: AuthMiddleware.js
+        10. Dans ce dossier on vas crée un fonction pour vois si nous avons recu un token lors de la connexion de l'utilisateur.
+        Si il n'est pas connecter, cela veut dire qu'on ne vas pas recevoir de token, donc on renvoie un message d'erreur.
+        11. Dans (AuthMiddleware.js), nous devons importer verify
+        12. Ensuite on vas crée un try,catch pour la validation de token
+        13. Ensuite on vas prendre le token (./pages/Question.js)
+
+13. Je vais faire en sorte que lorsque j'écris une reponse, je vais pouvoir mettre le nom de l'utilisateur qui a écris la reponse
+        1. Dans le model de Question, on vas rejouter la colonnes username
+        2. On vas rajouter a la methode validateToken. ligne 15 (AuthMiddleware.js)
+        3. Ensuite dans le fichier (Reponse.js) on crée une constant username et on prend le username de l'utilisateur connecté
+        grace a la ligne 18
+
+14. Pour rajouter le nom d'utilisateur lorsqu'on ecris une reponse
+        1.On vas dans le frontend (./client/src/pages/Question.js)
+        2. Ensuite dans notre boucle ou on affiche le text de chaque reponse donné a la question,
+        on vas avoir la possiblité d'utiliser "{valeur.username}
+        3. Dans notre variable const "ajouterReponse" on vas rajouter, username:reponse.data.username
+        
+
+
+        
+
         
 

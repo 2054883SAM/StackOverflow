@@ -4,6 +4,9 @@ const { Users } = require("../models");
 
 const bcrypt = require("bcrypt");
 
+//Generation du token
+const { sign } = require("jsonwebtoken");
+
 router.post("/", async (req, res) => {
   const { username, password } = req.body;
   //L'utilisation de bcrypt.hash nous permet d'encrypter le mot de passe rentré et dans la promesse, lors de la creation
@@ -18,9 +21,9 @@ router.post("/", async (req, res) => {
   });
 });
 router.post("/login", async (req, res) => {
-  const { username, password } = req.body;
-
+  const { username, password , createdAt} = req.body;
   const user = await Users.findOne({ where: { username: username } });
+ 
   if (!user) {
     return res.json({ error: "L'utilisateur n'existe pas" });
   }
@@ -29,8 +32,12 @@ router.post("/login", async (req, res) => {
   if (!match) {
     return res.json({ error: "Votre mot de passe est incorrect" });
   }
+  const accessToken = sign(
+    { username: user.username, id: user.id},
+    "secretImportant"
+  );
 
-  res.json("Vous êtes connecté");
+  res.json(accessToken);
 });
 
 module.exports = router;

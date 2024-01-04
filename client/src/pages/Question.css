@@ -53,7 +53,7 @@
 
 .ajouterReponse input {
   flex-grow: 1;
-  padding: 10px;
+  padding: 15px;
   border: 2px solid #ddd;
   border-radius: 5px;
 }
@@ -74,13 +74,36 @@
 
 .listeReponse div {
   background-color: #ffffff; /* Fond blanc pour plus de visibilité */
-  padding: 15px;
+  padding: 40px;
+  position: relative;
   margin-bottom: 10px; /* Espacement entre les réponses */
   border: 1px solid #ddd; /* Bordure subtile pour chaque réponse */
   border-radius: 8px; /* Bordures arrondies */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Légère ombre pour la profondeur */
+  word-wrap: break-word; /* Assure que le texte long est cassé et passe à la ligne suivante */
+  overflow-wrap: break-word;
+
 }
 
 .listeReponse div:last-child {
   margin-bottom: 0; /* Pas de marge pour le dernier élément */
 }
+
+.username {
+  position: absolute; /* Positionnement absolu pour le footer */
+  bottom: 10px; /* Positionné à 10px du bas du conteneur div */
+  left: 10px; /* Positionné à 10px de la droite du conteneur div */
+  font-size: 14px;
+  color: #888;
+
+ }
+
+ .time {
+  position: absolute; /* Positionnement absolu pour le footer */
+  bottom: 10px; /* Positionné à 10px du bas du conteneur div */
+  right: 10px; /* Positionné à 10px de la droite du conteneur div */
+  font-size: 14px;
+  color: #888;
+
+ }
+

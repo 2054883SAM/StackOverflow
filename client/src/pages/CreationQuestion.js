@@ -56,7 +56,7 @@ function CreationQuestion() {
           <label>Titre</label>
           <ErrorMessage name="title" component="span" />
           <Field
-            autocomplete="off"
+            autoComplete="off"
             id="inputCreeQuestion"
             name="title"
             placeholder="(Entrer le titre)"
@@ -64,7 +64,7 @@ function CreationQuestion() {
           <label>Question</label>
           <ErrorMessage name="questionText" component="span" />
           <Field
-            autocomplete="off"
+            autoComplete="off"
             id="inputCreeQuestion"
             name="questionText"
             placeholder="(Entrer votre question)"
@@ -86,7 +86,7 @@ function CreationQuestion() {
           <label>Nom d'utilisateur:</label>
           <ErrorMessage name="username" component="span" />
           <Field
-            autocomplete="off"
+            autoComplete="off"
             id="inputCreeQuestion"
             name="username"
             placeholder="(Votre nom d'utilisateur)"

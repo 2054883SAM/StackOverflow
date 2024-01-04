@@ -1,49 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.container {
+  
+  justify-content: center;
+  align-items: center;
+ 
+  
+}
 
 .connexion {
-    font-family: 'Arial', sans-serif;
-    width: 100vw; /* Largeur totale de la vue */
-    height: 100vh; /* Hauteur totale de la vue */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centre horizontalement */
-    align-items: center; /* Centre verticalement */
-   
+margin-top: 70px;
+  background: #222;
+  padding: 40px;
+  width: 35vw;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.9);
+  text-align: center;
 }
 
 .connexion h2 {
-    color: #4CAF50; /* Couleur du titre */
-    margin-bottom: 20px; /* Espacement sous le titre */
+  font-size: 2em;
+  color: #0f0;
+  text-transform: uppercase;
+  margin-bottom: 20px;
 }
 
 .connexion input {
-    width: 300px;
-    height: 40px;
-    margin-bottom: 10px; /* Espacement entre les champs */
-    padding: 0 10px;
-    font-size: 16px;
-    border: 2px solid #cccccc; /* Bordure douce */
-    border-radius: 5px;
-    transition: border-color 0.3s ease; /* Transition de bordure */
-}
-
-.connexion input:focus {
-    border-color: #4CAF50; /* Couleur de bordure lors de la mise au point */
-    outline: none; /* Suppression de l'outline par défaut */
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
 }
 
 .connexion button {
-    width: 300px;
-    height: 40px;
-    border: none;
-    background-color: #4CAF50;
-    border-radius: 5px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  width: 100%;
+  padding: 10px;
+  background: #0f0;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
 }
 
-.connexion button:hover {
-    background-color: #00bfff; /* Couleur plus claire au survol */
+@media (max-width: 600px) {
+  .connexion {
+    width: 90%;
+  }
 }

@@ -8,6 +8,13 @@ module.exports = (sequelize, DataTypes) => {
           //Ne peut pas etre null
           allowNull: false,
         },
+
+        username: {
+          //La username est de type String
+          type: DataTypes.STRING,
+          //Ne peut pas etre null
+          allowNull: false,
+        },
     });
     return Reponses;
   };

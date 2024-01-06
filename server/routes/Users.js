@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { Users } = require("../models");
-
+const { validateToken } = require("../middlewares/AuthMiddleware");
 const bcrypt = require("bcrypt");
 
 //Generation du token
@@ -21,9 +21,9 @@ router.post("/", async (req, res) => {
   });
 });
 router.post("/login", async (req, res) => {
-  const { username, password , createdAt} = req.body;
+  const { username, password, createdAt } = req.body;
   const user = await Users.findOne({ where: { username: username } });
- 
+
   if (!user) {
     return res.json({ error: "L'utilisateur n'existe pas" });
   }
@@ -33,11 +33,15 @@ router.post("/login", async (req, res) => {
     return res.json({ error: "Votre mot de passe est incorrect" });
   }
   const accessToken = sign(
-    { username: user.username, id: user.id},
+    { username: user.username, id: user.id },
     "secretImportant"
   );
 
   res.json(accessToken);
+});
+
+router.get("/verificationUser", validateToken, (req, res) => {
+  res.json(req.user);
 });
 
 module.exports = router;

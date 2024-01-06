@@ -92,7 +92,7 @@
 .username {
   position: absolute; /* Positionnement absolu pour le footer */
   bottom: 10px; /* Positionné à 10px du bas du conteneur div */
-  left: 10px; /* Positionné à 10px de la droite du conteneur div */
+  right: 10px; /* Positionné à 10px de la droite du conteneur div */
   font-size: 14px;
   color: #888;
 

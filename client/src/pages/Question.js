@@ -34,7 +34,7 @@ function Question() {
         { reponsesBody: nouvelleReponse, QuestionId: id },
         {
           headers: {
-            accessToken: sessionStorage.getItem("accessToken"),
+            accessToken: localStorage.getItem("accessToken"),
           },
         }
       )

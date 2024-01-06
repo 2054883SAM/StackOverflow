@@ -13,7 +13,7 @@ const validateToken = (req, res, next) => {
     const validToken = verify(accessToken, "secretImportant");
     //Pour prendre l'username qui provient du token
     req.user=validToken
-    req.createdAt=validToken
+     
     if (validToken) {
       return next();
     }

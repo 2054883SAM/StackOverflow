@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import "./Connecter.css";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../helpers/AuthContext";
 
 function Connecter() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { setAuthState } = useContext(AuthContext);
 
   let navigate = useNavigate();
 
@@ -15,7 +17,8 @@ function Connecter() {
       if (reponse.data.error) {
         alert(reponse.data.error);
       } else {
-        sessionStorage.setItem("accessToken", reponse.data);
+        localStorage.setItem("accessToken", reponse.data);
+        setAuthState(true);
         navigate("/");
       }
     });

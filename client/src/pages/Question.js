@@ -1,21 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./Question.css";
+import { AuthContext } from "../helpers/AuthContext";
+
 function Question() {
   let { id } = useParams();
   const [questionSelectionner, setQuestionSelectionner] = useState({});
   const [reponseQuestion, setReponseQuestion] = useState([]);
   const [nouvelleReponse, setNouvelleReponse] = useState("");
-
+  const { authState } = useContext(AuthContext);
 
   //function formatDateTime(isoString) {
-    //const date = new Date(isoString);
-   // const formattedDate = date.toLocaleDateString();
-   // const formattedTime = date.toLocaleTimeString();
-   // return `${formattedTime} ${formattedDate}`;
- // }
-
+  //const date = new Date(isoString);
+  // const formattedDate = date.toLocaleDateString();
+  // const formattedTime = date.toLocaleTimeString();
+  // return `${formattedTime} ${formattedDate}`;
+  // }
 
   useEffect(() => {
     axios.get(`http://localhost:3001/questions/byId/${id}`).then((response) => {
@@ -34,7 +35,7 @@ function Question() {
         { reponsesBody: nouvelleReponse, QuestionId: id },
         {
           headers: {
-            accessToken: sessionStorage.getItem("accessToken"),
+            accessToken: localStorage.getItem("accessToken"),
           },
         }
       )
@@ -45,15 +46,29 @@ function Question() {
         } else {
           const reponseAAjouter = {
             reponsesBody: nouvelleReponse,
-            //Pour faire en sorte que lorsqu'on ajoute 
+            //Pour faire en sorte que lorsqu'on ajoute
             username: reponse.data.username,
-           
+            //modification faite
+            id:reponse.data.id
           };
           setReponseQuestion([...reponseQuestion, reponseAAjouter]);
           setNouvelleReponse("");
         }
         /* Cette ligne de code permet d'afficher la nouvelle reponse sans avoir a rafrechire la page*/
       });
+  };
+
+  const deleteReponse = (id) => {
+    console.log("ID de la réponse à supprimer:", id);
+    axios.delete(`http://localhost:3001/reponses/${id}`,{
+      headers: {
+        accessToken: localStorage.getItem("accessToken"),
+      },
+    }).then(()=>{
+      setReponseQuestion(reponseQuestion.filter((val)=>{
+        return val.id !==id;
+      }))
+    })
   };
 
   return (
@@ -88,13 +103,23 @@ function Question() {
         </div>
 
         <div className="listeReponse">
-          {reponseQuestion.map((valeur, key) => {
+          {reponseQuestion.map((reponse, key) => {
             return (
               <div key={key}>
-              {valeur.reponsesBody}
-              <label className="username">@{valeur.username}</label>
-              {/*<label className="time">{formatDateTime(valeur.createdAt)}</label>*/}
-            </div>
+                {reponse.reponsesBody}
+                <label className="username">@{reponse.username}</label>
+                {console.log(reponse.id)}
+                {authState.username === reponse.username && (
+                  <button
+                    className="supprimer-btn"
+                    onClick={() => deleteReponse(reponse.id)}
+                  >
+                    X
+                    
+                  </button>
+                )}
+                {/*<label className="time">{formatDateTime(question.createdAt)}</label>*/}
+              </div>
             );
           })}
         </div>

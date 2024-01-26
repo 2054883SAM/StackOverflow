@@ -16,12 +16,21 @@ router.get("/:questionId", async (req, res) => {
 router.post("/", validateToken, async (req, res) => {
   const reponse = req.body;
   const username = req.user.username;
- 
+
   //Pour prendre le username du token (de la personne connecté)
-  reponse.username= username;
-  
-  await Reponses.create(reponse);
+  reponse.username = username;
+
+  const aaa = await Reponses.create(reponse);
+  console.log(aaa.id);
   res.json(reponse);
+});
+
+router.delete("/:reponseId", validateToken, async (req, res) => {
+  const reponseId = req.params.reponseId;
+
+  await Reponses.destroy({ where: { id: reponseId } });
+
+  res.json("SUPPRIMER");
 });
 
 module.exports = router;

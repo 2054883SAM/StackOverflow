@@ -92,7 +92,7 @@
 .username {
   position: absolute; /* Positionnement absolu pour le footer */
   bottom: 10px; /* Positionné à 10px du bas du conteneur div */
-  left: 10px; /* Positionné à 10px de la droite du conteneur div */
+  right: 10px; /* Positionné à 10px de la droite du conteneur div */
   font-size: 14px;
   color: #888;
 
@@ -107,3 +107,25 @@
 
  }
 
+ /* Style général pour le bouton supprimer */
+.supprimer-btn {
+  background-color: red;        /* Couleur de fond */
+  color: white;                 /* Couleur du texte */
+  border: none;                 /* Pas de bordure */
+  padding: 5px 10px;            /* Padding intérieur */
+  margin: 5px;                  /* Margin extérieur */
+  border-radius: 5px;           /* Bordures arrondies */
+  cursor: pointer;              /* Curseur en forme de main */
+  font-weight: bold;            /* Texte en gras */
+}
+
+/* Style supplémentaire pour le survol du bouton */
+.supprimer-btn:hover {
+  background-color: darkred;    /* Couleur de fond plus foncée au survol */
+}
+
+/* Style supplémentaire pour le bouton désactivé */
+.supprimer-btn:disabled {
+  background-color: grey;       /* Couleur de fond pour le bouton désactivé */
+  cursor: default;              /* Curseur par défaut pour le bouton désactivé */
+}

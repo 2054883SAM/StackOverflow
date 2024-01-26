@@ -9,11 +9,11 @@ const validateToken = (req, res, next) => {
 
   try {
     //La cle secraite doit etre la meme que dans user
-    
+
     const validToken = verify(accessToken, "secretImportant");
     //Pour prendre l'username qui provient du token
-    req.user=validToken
-    req.createdAt=validToken
+    req.user = validToken;
+
     if (validToken) {
       return next();
     }

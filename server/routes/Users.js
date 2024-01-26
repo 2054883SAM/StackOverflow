@@ -44,4 +44,8 @@ router.get("/verificationUser", validateToken, (req, res) => {
   res.json(req.user);
 });
 
+router.get("/verificationUser", validateToken, (req, res) => {
+  res.json(req.user);
+});
+
 module.exports = router;

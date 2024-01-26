@@ -184,6 +184,48 @@
         accessToken : C'est probablement un jeton (token) utilisé pour l'authentification. Il permet au serveur de savoir qui fait la requête et s'il a la permission de supprimer la réponse. En gros, c'est comme une clé qui prouve que l'utilisateur est bien connecté et autorisé à effectuer cette action.
         
 
+15. Maintenant je vais faire en sorte d'enlever l'affichage ("Se connecter/S'incrire") lorsqu'un user est connecté
+        1. Cette ligne de code permet de savoir si il y a un token qui est utilisé dans l'application.
+        Si oui on n'afficher pas les deux liens dans la bar de navigation.  "<AuthContext.Provider>" (App.js)
+        2. Le probleme avec le sessionStorage, c'est que lorsque je ferme ma page, ca me deconnecte automatiquement.
+        Donc c'est mieux d'utiliser LocalStorage, pour pouvoir garder notre connexion
+            1.Pout changer notre item en LocalStorage on vas dans (./pages/Connecter) et on change la ligne 18 pour "LocalStorage"
+            2. Maintenant, lorsqu'on rajoute un commentaire, on get l'item du LocalStorage et non de sessionStorage.
+            Donc dans: ("./pages/Question.js") lorsque j'écris un commentaire et que je veux prend le username de la personne connecté,
+            Je dois maintenant changer la ligne 37 et mettre LocalStorage. Il faut faire la meme chose dans ("App.js) ligne 20.
+
+16. je fait face a un probleme. Lorsque je suis connecter, je dois rafraichir la page pour que les boutton se connecter et inscrire disparaisse
+        1.Donc je vais crée un folder "helpers" avec le fichier "AuthContext.js"
+        (Ceci est particulièrement utile pour partager des données globales comme l'authentification de l'utilisateur)
+        2. On dois importer notre context dans le fichier qui est le parent de tout le projet. Dans notre cas "App.js"
+        3. Ensuite on vas cree un useState qui vas nous permettre de savoir l'état de notre connexion
+        AuthContext.Provider est un composant qui permet de passer authState et setAuthState à tous les composants enfants qui consomment ce contexte. 
+        En d'autres termes, cela rend authState et setAuthState disponibles dans n'importe quel composant de l'arborescence des composants qui s'abonne au AuthContext.
+        Comme ca, dans toute les pages, il vas etre possible de savoir si nous somme connecté ou non.
+        4. Maintenant, pour afficher "Se connecter/S'incrire", j'ai juste a verifier l'état de connexion.
+        5.Pour changer l'état de connexion, lorsqu'on clic sur ce connecter et que la connexion a fonctionner, il faut importer "UseContext" et "AuthContext"
+        
+        
+            EXPLICATION DE LA LIGNE DE CODE 10 DANS "./PAGES/Connecter.js":
+            useContext Hook de React :
+            useContext est un Hook fourni par React qui permet à vos composants d'accéder aux valeurs d'un Context sans avoir à le passer explicitement à chaque niveau de l'arborescence des composants.
+            Ici, useContext(AuthContext) signifie que vous utilisez le Hook useContext pour accéder aux valeurs fournies par AuthContext, le contexte que vous avez créé précédemment (probablement pour gérer l'état d'authentification dans l'ensemble de l'application).
+            AuthContext :
+            AuthContext est le contexte que vous avez importé. Ce contexte est supposé être configuré pour contenir les informations et les fonctions liées à l'authentification des utilisateurs.
+            En enveloppant votre application (ou une partie de celle-ci) dans un AuthContext.Provider, vous avez la possibilité de définir des valeurs accessibles à tous les composants enfants qui utilisent ce contexte.
+            Extraction de setAuthState à partir de AuthContext :
+            { setAuthState } utilise la déstructuration pour extraire uniquement la fonction setAuthState du contexte. setAuthState est probablement une fonction qui vous permet de mettre à jour l'état d'authentification (par exemple, indiquer si un utilisateur est connecté ou non).
+            Cela signifie que setAuthState est une fonction passée comme une partie de l'objet value du AuthContext.Provider dans un autre composant (probablement à un niveau plus élevé dans l'arborescence des composants).
+            Utilisation de setAuthState dans le composant Connecter :
+            Dans votre composant Connecter, vous pouvez maintenant utiliser setAuthState pour modifier l'état d'authentification globale. Par exemple, après une connexion réussie, vous pourriez appeler setAuthState({ ... }) pour mettre à jour l'état global, reflétant ainsi que l'utilisateur est maintenant authentifié.
+
+17. Maintenant quand je rafraichie les deux liens reaparaisse. Parce que lorsque je rafraichie la page, le useState est de base initialiser a false
+        1. Dans le useEffect, on vas verifier si il y a un token si oui on vas setAuthState(true)
+
+18.Comment faire pour ne pas accepter de fakeToken
+        1. Dans notre routes "Users.js" on vas cree une nouvelle route pour verifier si 
+
+             
 
 
              

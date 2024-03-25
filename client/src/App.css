@@ -48,3 +48,41 @@ body {
 .main-content {
   padding-top: 80px; /* Hauteur de la navbar + un peu d'espace */
 }
+
+
+/* App.css */
+
+
+
+/* App.css */
+
+.logOut {
+  background-color: #f44336; /* Couleur de fond rouge */
+  color: white;              /* Texte blanc */
+  border: none;              /* Pas de bordure */
+  padding: 8px 16px;         /* Padding intérieur */
+  margin-left: 10px;         /* Marge à gauche */
+  border-radius: 4px;        /* Bordures arrondies */
+  cursor: pointer;           /* Curseur en forme de main */
+  font-weight: bold;         /* Texte en gras */
+  margin-right: 8px;
+}
+
+.logOut:hover {
+  background-color: #d32f2f; /* Couleur de fond plus foncée au survol */
+}
+
+/* Style de la zone d'authentification à droite */
+.navbar .auth-area {
+  margin-left: auto; /* Pousse la zone d'authentification vers la droite */
+  display: flex; /* Utilise flexbox pour aligner les éléments à l'intérieur */
+  align-items: center; /* Centre les éléments verticalement */
+}
+
+/* Style pour le nom d'utilisateur */
+.navbar .username {
+  color: white;
+  margin-right: 100px; /* Espacement après le bouton Logout */
+  font-size: 18px;
+  margin-bottom: 13px;
+}

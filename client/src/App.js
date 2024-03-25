@@ -5,6 +5,7 @@ import Accueil from "./pages/Accueil";
 import CreationQuestion from "./pages/CreationQuestion";
 import Question from "./pages/Question";
 import Connecter from "./pages/Connecter";
+import PageNotFound from "./pages/PageNotFound";
 import Inscrire from "./pages/Inscrire";
 import { AuthContext } from "./helpers/AuthContext";
 import { useState, useEffect } from "react";
@@ -52,20 +53,25 @@ function App() {
         <Router>
           <header>
             <nav className="navbar">
-              <Link to="/">Questions</Link>/
-              <Link to="/creeQuestion">Poser votre question</Link>
-              {!authState.statut ? (
-                <>
-                  /<Link to="/connexion">Se connecter</Link> /
-                  <Link to="/inscrire">S'incrire</Link>
-                </>
-              ) : (
-                <button onClick={logout} className="logOut">
-                  {" "}
-                  Logout
-                </button>
-              )}
-              <h1>{authState.username}</h1>
+              {/* Déplacer ces liens au début */}
+              <Link to="/creeQuestion">Poser votre question</Link> /
+              <Link to="/">Questions</Link>
+              {/* Conditionner l'affichage de la partie droite */}
+              <div className="auth-area">
+                {!authState.statut ? (
+                  <>
+                    <Link to="/connexion">Se connecter</Link> /
+                    <Link to="/inscrire">S'incrire</Link>
+                  </>
+                ) : (
+                  <>
+                    <button onClick={logout} className="logOut">
+                      Logout
+                    </button>
+                    <span className="username">@{authState.username}</span>
+                  </>
+                )}
+              </div>
             </nav>
           </header>
           <Routes>
@@ -74,6 +80,7 @@ function App() {
             <Route path="/question/:id" element={<Question />} />
             <Route path="/connexion" element={<Connecter />} />
             <Route path="/inscrire" element={<Inscrire />} />
+            <Route path="*" exact element={<PageNotFound/>}/>
           </Routes>
         </Router>
       </AuthContext.Provider>

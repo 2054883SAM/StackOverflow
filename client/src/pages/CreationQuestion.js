@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import "./CreationQuestion.css";
 import * as Yup from "yup";
 import axios from "axios";
-import {useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom";
+import { AuthContext } from "../helpers/AuthContext";
+
 
 function CreationQuestion() {
+  const { authState } = useContext(AuthContext);
+
   const initialValues = {
     title: "",
     questionText: "",
     language: "",
-    username: "",
+    username: authState.username ,
   };
   let navigate = useNavigate();
   
@@ -83,14 +87,7 @@ function CreationQuestion() {
               </option>
             ))}
           </Field>
-          <label>Nom d'utilisateur:</label>
-          <ErrorMessage name="username" component="span" />
-          <Field
-            autoComplete="off"
-            id="inputCreeQuestion"
-            name="username"
-            placeholder="(Votre nom d'utilisateur)"
-          ></Field>
+
           <button type="submit"> Poster votre question!</button>
         </Form>
       </Formik>
